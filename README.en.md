@@ -1,6 +1,5 @@
 <div align="center">
   <img src="assets/icon-256.png" width="120" alt="DSH Foundry">
-</div>
 
 # DSH Foundry
 
@@ -12,6 +11,7 @@
 [![Upstream diff](https://img.shields.io/badge/Upstream%20diff-0-brightgreen.svg)](#why-not-a-fork)
 
 [中文](README.md) · [Download](#download) · [Features](#features) · [Build](#building-from-source) · [License](#license)
+</div>
 
 ## Introduction
 
