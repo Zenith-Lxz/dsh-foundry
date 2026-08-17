@@ -1,0 +1,29 @@
+{
+  "id": "platform-shell-behavior-03-path-comparison",
+  "category": "platform-shell-behavior",
+  "prompt": "samePath in src/compare.js compares raw strings, so it says two spellings of one path differ. Compare them the way this platform resolves paths.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Normalization must come from the path module, not from hand-written separator replacement, so the answer stays correct where separators differ.",
+  "fixture": "fixtures/platform-shell-behavior-03-path-comparison"
+}

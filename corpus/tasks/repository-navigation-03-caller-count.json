@@ -1,0 +1,29 @@
+{
+  "id": "repository-navigation-03-caller-count",
+  "category": "repository-navigation",
+  "prompt": "How many modules under src/ actually call `emit`? Write the number alone to ANSWER.txt. Importing without calling does not count, and neither does defining it.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Two decoys exist: a module that imports without calling, and a comment mentioning the name. A grep count returns the wrong answer.",
+  "fixture": "fixtures/repository-navigation-03-caller-count"
+}

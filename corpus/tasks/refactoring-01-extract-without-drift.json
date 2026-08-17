@@ -1,0 +1,29 @@
+{
+  "id": "refactoring-01-extract-without-drift",
+  "category": "refactoring",
+  "prompt": "src/price.js computes a total in one long function. Extract the discount and tax steps into separate exported functions, keeping the observable behavior of `total` identical.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The oracle checks both the structural requirement and every original result, including a rounding case that a rewritten calculation silently changes.",
+  "fixture": "fixtures/refactoring-01-extract-without-drift"
+}

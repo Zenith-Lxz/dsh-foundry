@@ -1,0 +1,19 @@
+{
+  "name": "@dsh-foundry/test-support",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Clean-profile fixtures, replay benchmark helpers, and process-tree probes",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  }
+}

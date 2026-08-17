@@ -1,0 +1,29 @@
+{
+  "id": "repository-navigation-01-definition-site",
+  "category": "repository-navigation",
+  "prompt": "Where is the timeout value that the retry loop actually uses defined? Write the answer as a single line `<relative-path>:<line>` to ANSWER.txt in the workspace root. Change nothing else.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Two plausible constants exist and only one reaches the retry loop. Verifies the agent traces the call path instead of matching on the name `TIMEOUT`.",
+  "fixture": "fixtures/repository-navigation-01-definition-site"
+}

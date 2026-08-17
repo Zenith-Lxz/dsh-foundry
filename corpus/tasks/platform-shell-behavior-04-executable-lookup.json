@@ -1,0 +1,29 @@
+{
+  "id": "platform-shell-behavior-04-executable-lookup",
+  "category": "platform-shell-behavior",
+  "prompt": "resolveCommand in src/command.js hardcodes a POSIX path separator when it searches PATH. Use whatever this platform actually uses to separate PATH entries.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "PATH is colon-separated on POSIX and semicolon-separated on Windows, so on macOS the wrong fix passes every behavior check. The oracle additionally requires the delimiter to come from the runtime.",
+  "fixture": "fixtures/platform-shell-behavior-04-executable-lookup"
+}

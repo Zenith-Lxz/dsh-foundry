@@ -1,0 +1,29 @@
+{
+  "id": "long-session-resume-04-error-type-migration",
+  "category": "long-session-resume",
+  "prompt": "Replace every `throw new Error(...)` under src/ with `throw new StepError(step, message)` from src/errors.js, keeping each message exactly as it is now.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Twelve throw sites whose messages must survive verbatim while the type changes. An agent that rewrites the messages while migrating fails.",
+  "fixture": "fixtures/long-session-resume-04-error-type-migration"
+}

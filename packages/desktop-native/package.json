@@ -1,0 +1,51 @@
+{
+  "name": "@dsh-foundry/native",
+  "version": "0.1.0",
+  "description": "Desktop directory-flow occupant: fills the two public workspace directory-flow slots over the Electron native bridge",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-slots": "0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-workspace": "0.1.0-rc.6",
+    "@types/react": "~18.3.1",
+    "react": "^18.2.0",
+    "@dsh-foundry/contract": "workspace:*",
+    "@deepseek-ai/cordis": "4.0.1"
+  },
+  "license": "MIT",
+  "dshFoundry": {
+    "distribution": "dsh-foundry",
+    "qualified": true
+  }
+}

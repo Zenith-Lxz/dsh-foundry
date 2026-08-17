@@ -1,0 +1,29 @@
+{
+  "id": "failing-test-diagnosis-03-unawaited-promise",
+  "category": "failing-test-diagnosis",
+  "prompt": "test.mjs reports an empty result even though the loader clearly pushes a value. Fix src/. Do not change test.mjs.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The callbacks resolve after the test has already read the array, so the result is empty. An agent that adds a delay to the test rather than fixing the source fails the oracle.",
+  "fixture": "fixtures/failing-test-diagnosis-03-unawaited-promise"
+}

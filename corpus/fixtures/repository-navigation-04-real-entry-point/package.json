@@ -1,0 +1,6 @@
+{
+  "name": "demo-package",
+  "type": "module",
+  "main": "src/library.js",
+  "bin": { "demo": "src/cli/start.js" }
+}

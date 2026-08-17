@@ -1,0 +1,29 @@
+{
+  "id": "multi-file-feature-05-structured-audit",
+  "category": "multi-file-feature",
+  "prompt": "Record every mutation through src/audit.js: `save` and `remove` in src/service.js must each append one entry with the operation, the key, and whether it changed anything. Do not change what those functions return.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Removing an absent key changes nothing, so the entry must say so. An audit that records intent rather than effect fails that case.",
+  "fixture": "fixtures/multi-file-feature-05-structured-audit"
+}

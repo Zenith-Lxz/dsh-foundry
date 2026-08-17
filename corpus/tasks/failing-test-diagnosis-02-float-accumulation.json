@@ -1,0 +1,29 @@
+{
+  "id": "failing-test-diagnosis-02-float-accumulation",
+  "category": "failing-test-diagnosis",
+  "prompt": "test.mjs fails on a total that looks correct. Fix src/ so it passes. Do not change test.mjs.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Repeated float addition drifts. The fix is in how the total is computed, not in loosening the comparison, and the oracle rejects an edited test.",
+  "fixture": "fixtures/failing-test-diagnosis-02-float-accumulation"
+}

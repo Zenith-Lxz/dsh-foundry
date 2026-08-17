@@ -1,0 +1,31 @@
+# The daily coding distribution layer.
+#
+# Applied after the official base and Web/headless layers, with the profile's
+# own cordis.patch.yml and any --patch overlays still above it.
+#
+# This layer only ADDS rows. It overrides no official row, disables no official
+# capability, and contains no copy of an official composition: daily behavior is
+# a decoration mounted on individual Standard agents at runtime, so the official
+# Standard preset stays the live baseline and inherits every upstream addition
+# without a synchronization step here.
+
+- insert:
+    # Daily coding behavior. The plugin observes the official `agent/created`
+    # event, asks `resolveSessionPreset` which preset each session runs, and
+    # mounts its stable instruction section on that agent's own scoped context
+    # for Standard agents only. Every registration unwinds with the agent, so
+    # Minimal, PTC, Creator, and user presets are untouched by construction
+    # rather than by a filter that has to be maintained.
+    - id: daily-agent
+      name: '@dsh-foundry/daily-agent'
+
+    # The repository workbench. Its Host half publishes a five-method read-only
+    # capability through the official Typert Gateway; its Client half takes one
+    # entry in the `conversation.view` ring, so the workbench is a view the user
+    # switches to rather than a surface that displaces an official one. The
+    # workspace root is the only configuration; left unset it resolves to the
+    # directory the Harness was launched in, which is the workspace the user
+    # opened. Every request is confined to that root, and there is no generic
+    # filesystem or process Remote here.
+    - id: daily-workbench
+      name: '@dsh-foundry/daily-workbench'

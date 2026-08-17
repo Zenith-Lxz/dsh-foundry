@@ -1,0 +1,29 @@
+{
+  "id": "platform-shell-behavior-01-path-join",
+  "category": "platform-shell-behavior",
+  "prompt": "src/paths.js builds paths by concatenating with \"/\". Make it correct on the platform this workspace is running on, without hardcoding a separator.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Passes trivially on macOS with the wrong fix (a literal separator swap). The oracle requires the platform separator to come from the runtime, so the same task is meaningful on Windows.",
+  "fixture": "fixtures/platform-shell-behavior-01-path-join"
+}

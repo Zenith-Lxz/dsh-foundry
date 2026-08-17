@@ -1,0 +1,26 @@
+{
+  "name": "@dsh-foundry/daily-contract",
+  "version": "0.1.0",
+  "description": "Closed data types and runtime validation shared by the daily distribution",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "license": "MIT",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  },
+  "dshFoundry": {
+    "distribution": "dsh-foundry",
+    "qualified": true
+  }
+}

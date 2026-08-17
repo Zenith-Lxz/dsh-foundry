@@ -1,0 +1,1 @@
+src/app.js passes record.label, but the test supplies record.title. Fixing this requires changing src/app.js, which is outside the permitted scope.

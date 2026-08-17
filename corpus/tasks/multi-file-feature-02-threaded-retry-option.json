@@ -1,0 +1,29 @@
+{
+  "id": "multi-file-feature-02-threaded-retry-option",
+  "category": "multi-file-feature",
+  "prompt": "Add an optional `retries` option to `request` in src/client.js that reaches `attempt` in src/transport.js through src/middleware.js. Default to 0 retries and keep the current behavior when it is not supplied.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The middleware currently drops unknown options. The oracle counts real attempts, so an option that is accepted but never threaded through fails.",
+  "fixture": "fixtures/multi-file-feature-02-threaded-retry-option"
+}

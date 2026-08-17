@@ -1,0 +1,112 @@
+{
+  "$comment": "Single source of truth for what this companion release is qualified against. Read by the DSH adapter, the runtime staging script, the coupling gate, and the compatibility probes. Changing a pinned value requires re-running the per-platform qualification lanes.",
+  "companionVersion": "0.1.0",
+  "dsh": {
+    "range": ">=0.1.0-rc.6 <0.2.0",
+    "tested": "0.1.0-rc.6",
+    "package": "@deepseek-ai/dsh",
+    "bin": "lib/bin.js"
+  },
+  "readinessAdapter": {
+    "version": 1,
+    "appliesTo": ">=0.1.0-rc.6 <0.2.0",
+    "$comment": "Parses the official stdout ready line 'dsh web: <url>'. Captured from the tested release; see packages/dsh-adapter/src/readiness.ts."
+  },
+  "bridge": {
+    "version": 1
+  },
+  "electron": {
+    "version": "43.4.0"
+  },
+  "profile": {
+    "name": "desktop",
+    "bundle": "@dsh-foundry/bundle",
+    "bundles": [
+      "@deepseek-ai/dsh-base",
+      "@deepseek-ai/dsh-web-app",
+      "@dsh-foundry/bundle"
+    ],
+    "companionPackages": [
+      "@dsh-foundry/bundle",
+      "@dsh-foundry/daily-agent",
+      "@dsh-foundry/daily-bundle",
+      "@dsh-foundry/daily-contract",
+      "@dsh-foundry/daily-workbench",
+      "@dsh-foundry/layout",
+      "@dsh-foundry/native",
+      "@dsh-foundry/plugin-governance"
+    ],
+    "supersededScopes": [
+      "@dsh-desktop/"
+    ],
+    "$supersededScopesNote": "Package scopes this distribution published under before. A profile left by one of those releases still names its bundle layers and still has its packages installed, so neither the layer list nor node_modules can tell the difference from a layer the user added. Listing the scopes is the only auditable way to say \"this was us\"; provisioning drops layers in these scopes and reinstalls the current ones."
+  },
+  "targets": {
+    "darwin-arm64": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "node": {
+        "version": "24.18.0",
+        "artifact": "node-v24.18.0-darwin-arm64.tar.xz",
+        "sha256": "4477b9f78efb77744cf5eb57a0e9594dba66466b38b4e93fa9f35cb907a095a6",
+        "binary": "bin/node"
+      },
+      "acceptance": "pending"
+    },
+    "win32-x64": {
+      "platform": "win32",
+      "arch": "x64",
+      "node": {
+        "version": "24.18.0",
+        "artifact": "node-v24.18.0-win-x64.zip",
+        "sha256": "0ae68406b42d7725661da979b1403ec9926da205c6770827f33aac9d8f26e821",
+        "binary": "node.exe"
+      },
+      "acceptance": "unaccepted-no-host"
+    }
+  },
+  "requiredPackages": [
+    "@deepseek-ai/dsh",
+    "@deepseek-ai/dsh-base",
+    "@deepseek-ai/dsh-web-app",
+    "@deepseek-ai/dsh-client-runtime",
+    "@deepseek-ai/dsh-client-ui-slots",
+    "@deepseek-ai/dsh-client-ui-theme",
+    "@deepseek-ai/dsh-client-ui-workspace",
+    "@deepseek-ai/dsh-client-modules"
+  ],
+  "requiredSlots": [
+    "root",
+    "sidebar",
+    "conversation",
+    "details",
+    "conversation.empty",
+    "conversation.hero.workspace.directoryFlow",
+    "sidebar.workspaces.directoryFlow"
+  ],
+  "replacedRows": [
+    "ui-layout",
+    "directory-picker"
+  ],
+  "acceptanceRule": "A target is accepted only after its workflow, security, compatibility, performance, native-operation, and process-quiescence lanes pass on a real host of that platform. Cross-build, emulation, and Wine results are never acceptance.",
+  "packageManager": {
+    "name": "pnpm",
+    "version": "11.7.0",
+    "reason": "The official dsh plugin command forwards to pnpm on PATH. A packaged application launched from the desktop has a minimal PATH, so the package manager ships with the stage."
+  },
+  "adaptive": {
+    "status": "experimental-not-default",
+    "minimalIdentity": {
+      "derivedFrom": "runtime",
+      "dshVersion": "0.1.0-rc.6",
+      "toolNames": [
+        "bash",
+        "str_replace_editor"
+      ],
+      "promptSection": "deployment:persona",
+      "observedFingerprint": "tools:bash,str_replace_editor|prompt:see-runtime|len:45",
+      "note": "Derived at runtime via agentPresets.mount + tools.schemas(agent) + systemPrompt.assemble({scope:agent}). This record is an observation bound to the exact DSH version, never a source of truth: a mismatch means re-derive and re-qualify, not edit this file."
+    },
+    "promotionGate": "unrun \u2014 coding-evaluation (task group 8) has not been executed"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@dsh-foundry/daily-bundle",
+  "version": "0.1.0",
+  "description": "The daily coding distribution layer for desktop and browser profiles",
+  "type": "module",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@dsh-foundry/daily-agent": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@dsh-foundry/daily-agent": {
+      "optional": false
+    }
+  },
+  "files": [
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "dshFoundry": {
+    "distribution": "dsh-foundry",
+    "qualified": true
+  }
+}

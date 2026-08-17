@@ -1,0 +1,29 @@
+{
+  "id": "multi-file-feature-03-pagination",
+  "category": "multi-file-feature",
+  "prompt": "Add `limit` and `offset` to `list` in src/api.js, applied in src/store.js, and have the response report the unpaginated `total`. Calling `list` with no options must behave exactly as it does now.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The total must be the count before slicing. An implementation that returns the page length passes a single-page check and fails the multi-page case.",
+  "fixture": "fixtures/multi-file-feature-03-pagination"
+}

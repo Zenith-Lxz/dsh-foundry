@@ -1,0 +1,29 @@
+{
+  "id": "repository-navigation-05-unreferenced-export",
+  "category": "repository-navigation",
+  "prompt": "One export in src/util.js is never referenced anywhere in src/. Write its name alone to ANSWER.txt. Do not delete anything.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "One decoy is referenced only inside its own module and one only from a comment, so a naive occurrence count picks the wrong export.",
+  "fixture": "fixtures/repository-navigation-05-unreferenced-export"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "refactoring-03-callback-to-async",
+  "category": "refactoring",
+  "prompt": "Convert `load` in src/load.js from a callback API to an async function returning a promise, preserving exactly which inputs fail and with what message.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The callback form reports a missing key and an invalid key differently. A rewrite that collapses them passes a happy-path check and fails here.",
+  "fixture": "fixtures/refactoring-03-callback-to-async"
+}

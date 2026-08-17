@@ -1,0 +1,29 @@
+{
+  "id": "repository-navigation-02-effective-handler",
+  "category": "repository-navigation",
+  "prompt": "Two modules define a handler for the \"sync\" event, but only one is registered. Write the name of the registered handler function alone to ANSWER.txt.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Both candidates match a search for \"sync\". Only the registry tells them apart.",
+  "fixture": "fixtures/repository-navigation-02-effective-handler"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "failing-test-diagnosis-01-shared-state",
+  "category": "failing-test-diagnosis",
+  "prompt": "Run the tests. One fails only when the whole file runs, not in isolation. Fix the source so both pass. Do not change test.mjs.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The failure is order-dependent shared state, not the assertion that reports it. Verifies the agent diagnoses the cause rather than making the visible assertion pass.",
+  "fixture": "fixtures/failing-test-diagnosis-01-shared-state"
+}

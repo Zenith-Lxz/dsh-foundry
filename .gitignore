@@ -1,0 +1,24 @@
+node_modules/
+lib/
+dist/
+out/
+stage/
+release/
+*.tsbuildinfo
+.DS_Store
+.env
+evidence/**/raw/
+
+# Stray declaration output from build glue, which has no published face.
+packages/*/build.d.ts
+apps/*/build.d.ts
+packages/*/tsdown.config.d.ts
+*.d.ts.map
+
+# Local agent / planning material — not part of the published source tree.
+AGENTS.md
+CLAUDE.md
+STATUS.md
+IDEA.md
+docs/
+openspec/

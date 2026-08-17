@@ -1,0 +1,29 @@
+{
+  "id": "multi-file-feature-01-typed-error",
+  "category": "multi-file-feature",
+  "prompt": "Add a `NotFoundError` that src/store.js throws when a key is absent, exported from src/errors.js, and make src/api.js translate it into a 404 result. Keep every existing behavior.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Requires a coordinated change across three files where the middle file must not swallow the new error. Verifies existing paths still behave.",
+  "fixture": "fixtures/multi-file-feature-01-typed-error"
+}

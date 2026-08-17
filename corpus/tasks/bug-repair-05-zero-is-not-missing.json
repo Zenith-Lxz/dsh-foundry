@@ -1,0 +1,29 @@
+{
+  "id": "bug-repair-05-zero-is-not-missing",
+  "category": "bug-repair",
+  "prompt": "settingOr in src/settings.js returns the fallback for a value the user really set. Fix it without changing the fallback behavior for genuinely absent keys.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "A falsy check treats 0, empty string, and false as absent. The oracle covers each falsy value plus a truly missing key.",
+  "fixture": "fixtures/bug-repair-05-zero-is-not-missing"
+}

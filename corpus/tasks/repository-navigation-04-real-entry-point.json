@@ -1,0 +1,29 @@
+{
+  "id": "repository-navigation-04-real-entry-point",
+  "category": "repository-navigation",
+  "prompt": "Which file runs when someone types the `demo` command from this package? Write its path relative to the workspace root, alone, to ANSWER.txt.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The manifest `main` field points elsewhere; only `bin` decides what the command runs.",
+  "fixture": "fixtures/repository-navigation-04-real-entry-point"
+}

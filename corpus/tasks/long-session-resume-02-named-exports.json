@@ -1,0 +1,29 @@
+{
+  "id": "long-session-resume-02-named-exports",
+  "category": "long-session-resume",
+  "prompt": "Every module under src/ except index.js uses a default export. Convert each to a named export matching its function name, and update src/index.js to re-export them by name.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Twelve mechanical conversions plus one aggregating file that must stay consistent with all of them. The oracle imports every name from the index.",
+  "fixture": "fixtures/long-session-resume-02-named-exports"
+}

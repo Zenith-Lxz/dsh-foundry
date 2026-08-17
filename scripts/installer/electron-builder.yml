@@ -1,0 +1,57 @@
+# Installer configuration.
+#
+# electron-builder is used **only to wrap an already-packaged directory** into
+# the installer each platform expects. Packaging itself stays with
+# `scripts/package-app.ts`, which owns the staged runtime, the companion
+# tarballs, and the target guard; handing that to electron-builder as well would
+# move those decisions into configuration that no test covers.
+#
+# The system `makensis` on the build machine cannot compile any script — it
+# aborts with `std::bad_alloc` while writing output, even for an empty one — so
+# the NSIS binaries electron-builder downloads are what actually produce the
+# Windows installer.
+
+appId: io.github.zenith-lxz.dsh-foundry
+productName: DSH Foundry
+copyright: Zenith-Lxz
+
+directories:
+  output: release/installer
+
+win:
+  target: nsis
+  icon: assets/icon.ico
+
+nsis:
+  # One click, no directory page, no elevation prompt: a per-user install under
+  # %LOCALAPPDATA% is what makes that possible.
+  oneClick: true
+  perMachine: false
+  allowToChangeInstallationDirectory: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  runAfterFinish: true
+  # The Harness home holds sessions, logs, and settings, and it belongs to the
+  # user. An uninstaller that removes it turns a reinstall into data loss.
+  deleteAppDataOnUninstall: false
+
+mac:
+  target: dmg
+  icon: assets/icon.icns
+  category: public.app-category.developer-tools
+
+dmg:
+  # The window a user sees on opening the image: the application on the left,
+  # the Applications folder on the right, and the drag between them is the
+  # install gesture macOS users already know.
+  contents:
+    - x: 140
+      y: 200
+      type: file
+    - x: 400
+      y: 200
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380

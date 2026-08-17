@@ -1,0 +1,29 @@
+{
+  "id": "failing-test-diagnosis-05-comparator-contract",
+  "category": "failing-test-diagnosis",
+  "prompt": "The sort in test.mjs produces a different order on different runs. Fix src/. Do not change test.mjs.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The comparator returns a boolean instead of a sign, which happens to work for some inputs. The oracle sorts a pre-shuffled input many times and requires one stable answer.",
+  "fixture": "fixtures/failing-test-diagnosis-05-comparator-contract"
+}

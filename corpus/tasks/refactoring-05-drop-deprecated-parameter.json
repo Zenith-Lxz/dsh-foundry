@@ -1,0 +1,29 @@
+{
+  "id": "refactoring-05-drop-deprecated-parameter",
+  "category": "refactoring",
+  "prompt": "The `legacy` parameter of `render` in src/render.js is always false at every callsite. Remove the parameter and the branch it guards, and update every caller.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "One caller passes the argument positionally after another parameter, so removing it naively shifts the remaining arguments — which the oracle detects.",
+  "fixture": "fixtures/refactoring-05-drop-deprecated-parameter"
+}

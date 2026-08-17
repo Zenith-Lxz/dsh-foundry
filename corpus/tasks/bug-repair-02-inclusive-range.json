@@ -1,0 +1,29 @@
+{
+  "id": "bug-repair-02-inclusive-range",
+  "category": "bug-repair",
+  "prompt": "parseRange in src/range.js should expand \"1-5\" to every number from 1 through 5 inclusive. It drops the last value. Fix it.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The off-by-one is invisible for a single-element range. The oracle checks inclusivity, a descending range, and a negative bound.",
+  "fixture": "fixtures/bug-repair-02-inclusive-range"
+}

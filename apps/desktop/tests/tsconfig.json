@@ -1,0 +1,5 @@
+{
+  "//": "Discovery entry so the type checker and linter see the desktop shell's tests. The application's own tsconfig covers src only, because it bundles from there and tests must not enter the bundle.",
+  "extends": "../../../tsconfig.tools.json",
+  "include": ["**/*.ts", "**/*.tsx"]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@dsh-foundry/bundle",
+  "version": "0.1.0",
+  "description": "The desktop profile layer: composes the official Web product with the desktop-native and desktop-layout client plugins",
+  "type": "module",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@dsh-foundry/native": "workspace:*",
+    "@dsh-foundry/layout": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@dsh-foundry/native": {
+      "optional": false
+    },
+    "@dsh-foundry/layout": {
+      "optional": false
+    }
+  },
+  "dshFoundry": {
+    "distribution": "dsh-foundry",
+    "qualified": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bug-repair-01-numeric-sort",
+  "category": "bug-repair",
+  "prompt": "The `rank` function in src/rank.js returns the wrong order for scores of different digit lengths. Fix it. Do not change the test file.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "A default lexicographic sort on numbers passes every single-digit example. Verifies the agent tests across digit lengths rather than reproducing the example it was shown.",
+  "fixture": "fixtures/bug-repair-01-numeric-sort"
+}

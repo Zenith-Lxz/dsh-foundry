@@ -1,0 +1,13 @@
+{
+  "//": "The Client program face, the counterpart to tsconfig.host.json. A dual-face package registers its Host under its own tsconfig.json and its Client under tsconfig.client.json, so the generator can emit the browser-side Remote client separately from the Host descriptors.",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "lib": ["ES2024", "DOM"],
+    "jsx": "react-jsx"
+  },
+  "files": [],
+  "references": [
+    { "path": "./packages/daily-workbench" }
+  ]
+}

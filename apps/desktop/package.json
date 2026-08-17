@@ -1,0 +1,21 @@
+{
+  "name": "@dsh-foundry/app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Electron companion shell: window policy, DSH supervision, and the native bridge",
+  "type": "module",
+  "main": "lib/main/index.cjs",
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts",
+    "dev": "node --experimental-strip-types build.ts && electron lib/main/index.cjs"
+  },
+  "dependencies": {
+    "@dsh-foundry/adapter": "workspace:*",
+    "@dsh-foundry/contract": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "43.4.0",
+    "esbuild": "^0.28.2"
+  },
+  "license": "MIT"
+}

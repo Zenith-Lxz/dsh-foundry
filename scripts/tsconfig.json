@@ -1,0 +1,5 @@
+{
+  "//": "Discovery entry for the TypeScript project service and the linter, which both resolve a file's nearest tsconfig.json by name. The face itself is tsconfig.tools.json at the repository root.",
+  "extends": "../tsconfig.tools.json",
+  "include": ["**/*.ts"]
+}

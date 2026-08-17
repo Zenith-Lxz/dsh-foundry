@@ -1,0 +1,29 @@
+{
+  "id": "refactoring-04-split-responsibilities",
+  "category": "refactoring",
+  "prompt": "The Report class in src/report.js both formats and stores. Split storage into its own exported class, keeping the Report public methods and their results unchanged.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The oracle pins the existing public surface, so a split that renames or drops a method fails even though the new structure looks right.",
+  "fixture": "fixtures/refactoring-04-split-responsibilities"
+}

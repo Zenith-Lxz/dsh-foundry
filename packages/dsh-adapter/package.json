@@ -1,0 +1,26 @@
+{
+  "name": "@dsh-foundry/adapter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The single adaptation surface for the official DSH runtime: resolution, version gating, readiness, lifecycle, and process-tree termination",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "dependencies": {
+    "semver": "^7.6.3",
+    "@dsh-foundry/contract": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/semver": "^7.5.8"
+  },
+  "license": "MIT",
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  }
+}

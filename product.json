@@ -1,0 +1,11 @@
+{
+  "$comment": "Product identity, in one place. Renaming the distribution is an edit here plus `pnpm run package:darwin-arm64`; nothing else hardcodes these strings.",
+  "name": "dsh-foundry",
+  "displayName": "DSH Foundry",
+  "publisher": "Zenith-Lxz",
+  "$publisherNote": "Becomes the CompanyName in the Windows executable version resource and the author of the packaged manifest. It names whoever publishes THIS distribution, never DeepSeek: the product states it is unaffiliated, and a Windows binary claiming otherwise in its file properties would contradict that where a user is most likely to check.",
+  "bundleId": "io.github.zenith-lxz.dsh-foundry",
+  "$bundleIdNote": "Reverse-DNS of a domain the publisher controls. macOS does not verify ownership for an unsigned build, but a signed release and any future notarization do, and a bundle id on someone else's domain collides with their apps in Launch Services.",
+  "repository": "https://github.com/Zenith-Lxz/dsh-foundry",
+  "$repositoryNote": "Canonical public repository for this distribution."
+}

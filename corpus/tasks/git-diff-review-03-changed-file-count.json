@@ -1,0 +1,29 @@
+{
+  "id": "git-diff-review-03-changed-file-count",
+  "category": "git-diff-review",
+  "prompt": "How many tracked files have uncommitted content changes? Write the number alone to ANSWER.txt. An untracked file does not count. Do not stage, commit, or revert anything.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "staging, committing, and discarding changes"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "An untracked file and a file whose mtime changed without content changing both inflate a careless count.",
+  "fixture": "fixtures/git-diff-review-03-changed-file-count"
+}

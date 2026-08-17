@@ -1,0 +1,30 @@
+{
+  "id": "long-session-resume-01-staged-migration",
+  "category": "long-session-resume",
+  "prompt": "Migrate every callsite in src/ from `oldLog(message, level)` to `log({ message, level })`, then delete the old export. Work through all files; PROGRESS.md records what is done.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src",
+    "PROGRESS.md"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Enough repetitive callsites that the work spans a compaction boundary. The oracle fails on any surviving callsite, so an agent that loses track mid-session cannot pass.",
+  "fixture": "fixtures/long-session-resume-01-staged-migration"
+}

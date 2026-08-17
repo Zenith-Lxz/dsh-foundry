@@ -1,0 +1,29 @@
+{
+  "id": "long-session-resume-05-consistent-bug-sweep",
+  "category": "long-session-resume",
+  "prompt": "Every module under src/ has the same bug: `pick` returns the fallback when the requested index is 0. Fix it in every module without changing anything else.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The same one-line defect twelve times, where three modules have superficially different formatting. A search-and-replace on one spelling leaves the others broken.",
+  "fixture": "fixtures/long-session-resume-05-consistent-bug-sweep"
+}

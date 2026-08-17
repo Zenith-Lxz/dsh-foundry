@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "lib": [
+      "ES2024",
+      "DOM"
+    ],
+    "jsx": "react-jsx",
+    "types": [
+      "node"
+    ],
+    "emitDeclarationOnly": true,
+    "declarationDir": "lib/types"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "references": [
+    {
+      "path": "../daily-contract"
+    },
+    {
+      "path": "../plugin-governance"
+    }
+  ]
+}

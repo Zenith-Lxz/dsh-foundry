@@ -1,0 +1,52 @@
+# The dsh-desktop bundle patch: the Electron companion surface over the
+# official dsh-base + dsh-web-app layers.
+#
+# Applied after dsh-web-app, with the profile's own cordis.patch.yml and any
+# --patch overlays still above it. A patch replaces the targeted row's whole
+# `config`, so each row below restates every key it owns.
+#
+# This layer changes composition only. It adds no copy of an official package
+# and no override of official business rows: session, stream, tool, terminal,
+# and download behavior stay exactly as the Web product defines them.
+
+# The official `directory-picker` row mounts the dual-face auto picker: a host
+# backend that provides the `directoryPicker` service AND a client half that
+# occupies both workspace directory-flow slots. The desktop surface owns those
+# slots with a real Electron dialog parented to the application window, so the
+# dual-face row is replaced rather than left to contend for single-kind slots.
+#
+# The service must still exist: `@deepseek-ai/dsh-host-apiproxy` injects
+# `directoryPicker` and does not activate without it, which is what makes this
+# a replacement instead of a removal.
+- id: directory-picker
+  disabled: true
+
+# The official root layout is replaced, not extended: `root` is a single-kind
+# slot, so the desktop frame and the official AppFrame cannot both occupy it.
+#
+# Replacing this row transfers everything it owned. `@dsh-foundry/layout`
+# re-provides `ctx.layout` (which ui-sidebar and ui-conversation inject),
+# re-declares the four child slots official plugins register into
+# (`sidebar`, `conversation`, `details`, `shell.overlay`), and seats the theme
+# presenter that projects `ctx.theme` snapshots onto the document.
+- id: ui-layout
+  disabled: true
+
+- insert:
+    # Host-only backend of the directory-picker seam. It declares no
+    # `dsh.client`, so it satisfies the gateway's injection without placing an
+    # occupant in either directory-flow slot. The desktop surface never calls
+    # it: its picking goes through the Electron bridge instead.
+    - id: desktop-directory-picker-host
+      name: '@deepseek-ai/dsh-host-directory-picker-native'
+
+    # Desktop directory flow: fills both public workspace directory-flow slots
+    # over the Electron preload bridge. The node half is empty; the row exists
+    # so the Loader serves the browser bundle through its dsh.client export.
+    - id: desktop-native
+      name: '@dsh-foundry/native'
+
+    # The desktop root frame: platform title bar, traffic-light safe area on
+    # macOS, caption controls on Windows, and the three official columns.
+    - id: desktop-layout
+      name: '@dsh-foundry/layout'

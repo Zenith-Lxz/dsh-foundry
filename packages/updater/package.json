@@ -1,0 +1,19 @@
+{
+  "name": "@dsh-foundry/updater",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Qualified update planning for the Harness runtime and the distribution",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  }
+}

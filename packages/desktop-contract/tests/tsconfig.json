@@ -1,0 +1,5 @@
+{
+  "//": "Discovery entry so the type checker and linter see this package's tests. The package's own tsconfig covers src only, because it emits declarations from there and tests must not appear in the published types.",
+  "extends": "../../../tsconfig.tools.json",
+  "include": ["**/*.ts", "**/*.tsx"]
+}

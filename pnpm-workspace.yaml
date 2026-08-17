@@ -1,0 +1,17 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+# The staged official runtime closure is installed by scripts/stage-runtime.ts into
+# stage/<target>/ and is deliberately outside the workspace: staged packages are
+# product input, not workspace members. Their own native build scripts run under
+# the staging script's explicit approval, not this file's.
+
+allowBuilds:
+  esbuild: true
+  electron: true
+  # Declined, not merely unapproved. electron-winstaller arrives with
+  # electron-builder and serves only the Squirrel.Windows target; this project
+  # builds NSIS installers and never invokes it, so running its build script
+  # would widen the install surface for something the product does not use.
+  electron-winstaller: false

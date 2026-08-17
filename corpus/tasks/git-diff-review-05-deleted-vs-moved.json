@@ -1,0 +1,29 @@
+{
+  "id": "git-diff-review-05-deleted-vs-moved",
+  "category": "git-diff-review",
+  "prompt": "One file was deleted outright and one was moved. Write the path of the file that was deleted without a replacement, alone, to ANSWER.txt. Do not stage, commit, or revert anything.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "ANSWER.txt"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "staging, committing, and discarding changes"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Both appear as deletions in a bare status listing; only the content of the new file distinguishes a move from a removal.",
+  "fixture": "fixtures/git-diff-review-05-deleted-vs-moved"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "long-session-resume-03-guard-every-entry",
+  "category": "long-session-resume",
+  "prompt": "Every `handle` function under src/ crashes on a null input. Make each return the string \"skipped\" for null or undefined, without changing what it returns for a real input.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Twelve near-identical files where one already has a partial guard that must not be duplicated or broken. Every file is checked for both paths.",
+  "fixture": "fixtures/long-session-resume-03-guard-every-entry"
+}

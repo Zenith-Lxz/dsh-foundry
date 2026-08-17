@@ -1,0 +1,19 @@
+{
+  "name": "@dsh-foundry/daily-eval",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Coding evaluation corpus, runner, metrics, and reports",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "bundle": "node --experimental-strip-types build.ts"
+  }
+}

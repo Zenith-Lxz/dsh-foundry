@@ -1,0 +1,26 @@
+{
+  "//": "The tools face: build scripts, gates, and repository-level tests. Separate from the package solution because these run under `node --experimental-strip-types` against source rather than being bundled, but they still need type checking and linting \u2014 before this existed they had neither.",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false,
+    "declaration": false,
+    "lib": [
+      "ES2024",
+      "DOM"
+    ],
+    "types": [
+      "node"
+    ],
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "tests/**/*.ts",
+    "*.config.ts",
+    "packages/*/build.ts",
+    "apps/*/build.ts",
+    "packages/*/tsdown.config.ts"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "platform-shell-behavior-02-line-endings",
+  "category": "platform-shell-behavior",
+  "prompt": "splitLines in src/lines.js leaves a stray carriage return on files written on Windows. Make it split correctly for both line-ending conventions.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Splitting on the platform separator is the wrong fix: a file with either convention can be read on either platform. The oracle feeds both.",
+  "fixture": "fixtures/platform-shell-behavior-02-line-endings"
+}

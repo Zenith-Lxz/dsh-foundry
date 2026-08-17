@@ -1,0 +1,29 @@
+{
+  "id": "platform-shell-behavior-05-argument-quoting",
+  "category": "platform-shell-behavior",
+  "prompt": "runTool in src/run.js builds a shell string, which breaks on paths containing spaces. Pass the arguments as a list instead, so no quoting is needed.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Quoting rules differ per platform, so the correct answer is to stop building a shell string. The oracle runs a real child process with a spaced path.",
+  "fixture": "fixtures/platform-shell-behavior-05-argument-quoting"
+}

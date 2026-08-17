@@ -1,0 +1,29 @@
+{
+  "id": "multi-file-feature-04-cache-with-invalidation",
+  "category": "multi-file-feature",
+  "prompt": "Cache `lookup` results in src/cache.js and use the cache from src/service.js. Writing through `save` must invalidate only the key it wrote.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Invalidating everything on write also passes a naive check. The oracle proves one key survives a write to another.",
+  "fixture": "fixtures/multi-file-feature-04-cache-with-invalidation"
+}

@@ -1,0 +1,35 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/desktop-contract"
+    },
+    {
+      "path": "packages/dsh-adapter"
+    },
+    {
+      "path": "packages/test-support"
+    },
+    {
+      "path": "apps/desktop"
+    },
+    {
+      "path": "packages/daily-contract"
+    },
+    {
+      "path": "packages/daily-agent"
+    },
+    {
+      "path": "packages/daily-workbench"
+    },
+    {
+      "path": "packages/plugin-governance"
+    },
+    {
+      "path": "./packages/daily-eval"
+    },
+    {
+      "path": "./packages/updater"
+    }
+  ]
+}

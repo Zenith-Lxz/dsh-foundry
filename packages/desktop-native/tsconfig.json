@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib/types",
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2024",
+      "DOM"
+    ],
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "references": [
+    {
+      "path": "../desktop-contract"
+    }
+  ]
+}

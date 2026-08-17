@@ -1,0 +1,29 @@
+{
+  "id": "bug-repair-03-mutating-merge",
+  "category": "bug-repair",
+  "prompt": "deepMerge in src/merge.js corrupts its first argument. Callers expect both inputs to be left alone. Fix it.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "Aliasing damage is invisible when the result is the only thing inspected. The oracle checks both inputs afterwards and checks a nested object.",
+  "fixture": "fixtures/bug-repair-03-mutating-merge"
+}

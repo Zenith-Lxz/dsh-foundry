@@ -1,0 +1,29 @@
+{
+  "id": "bug-repair-04-surrogate-truncate",
+  "category": "bug-repair",
+  "prompt": "truncate in src/truncate.js splits emoji in half when it cuts text. Make it cut on whole characters.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "A plain slice passes for ASCII and breaks surrogate pairs. The oracle checks that the result contains no lone surrogate.",
+  "fixture": "fixtures/bug-repair-04-surrogate-truncate"
+}

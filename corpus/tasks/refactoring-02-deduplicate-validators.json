@@ -1,0 +1,29 @@
+{
+  "id": "refactoring-02-deduplicate-validators",
+  "category": "refactoring",
+  "prompt": "src/validate.js repeats the same length-and-charset check three times. Extract it into one shared helper, exported, and keep every message identical.",
+  "platforms": [
+    "darwin",
+    "win32",
+    "linux"
+  ],
+  "timeoutMs": 600000,
+  "allowedScope": [
+    "src"
+  ],
+  "userAuthority": [
+    "model and provider selection",
+    "reasoning effort",
+    "billing",
+    "any write outside the allowed scope"
+  ],
+  "requiresNetwork": false,
+  "oracle": {
+    "command": "node",
+    "args": [
+      "verify.mjs"
+    ]
+  },
+  "rationale": "The three copies differ in one bound. A careless extraction unifies them and changes one message, which the oracle checks exactly.",
+  "fixture": "fixtures/refactoring-02-deduplicate-validators"
+}

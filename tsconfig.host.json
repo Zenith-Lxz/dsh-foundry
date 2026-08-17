@@ -1,0 +1,12 @@
+{
+  "//": "The Host program face. The official typert generator locates the workspace root by this file's presence, then reads its project references to discover which packages contribute Host Remotes. References, not `include`: the generator enumerates `projectReferences`, so an `include` list yields no registrations and emits nothing.",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "files": [],
+  "references": [
+    { "path": "./packages/daily-workbench" }
+  ]
+}
