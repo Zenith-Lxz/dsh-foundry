@@ -26,6 +26,7 @@ const REPOSITORY_ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const SOURCE = join(REPOSITORY_ROOT, 'assets', 'icon.svg')
 const OUTPUT = join(REPOSITORY_ROOT, 'assets', 'icon.icns')
 const WINDOWS_OUTPUT = join(REPOSITORY_ROOT, 'assets', 'icon.ico')
+const README_OUTPUT = join(REPOSITORY_ROOT, 'assets', 'icon-256.png')
 
 /**
  * Sizes carried by the Windows `.ico`.
@@ -129,6 +130,11 @@ try {
   })
   writeFileSync(WINDOWS_OUTPUT, buildIco(icoMembers))
   console.log(`icon written to assets/icon.ico (${icoMembers.length} members)`)
+
+  // A PNG for the README. GitHub renders an <img> pointing at an SVG
+  // inconsistently, so the documentation gets a raster it can always show.
+  execFileSync('sips', ['-z', '256', '256', rendered, '--out', README_OUTPUT], { stdio: 'ignore' })
+  console.log('icon written to assets/icon-256.png (for the README)')
 } finally {
   rmSync(scratch, { recursive: true, force: true })
 }

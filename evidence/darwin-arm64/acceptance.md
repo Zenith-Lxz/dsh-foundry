@@ -1,6 +1,6 @@
 # macOS darwin-arm64 acceptance record
 
-Generated 2026-08-17T08:55:07.661Z by `scripts/acceptance-matrix.ts`.
+Generated 2026-08-17T09:38:39.459Z by `scripts/acceptance-matrix.ts`.
 
 **Scope: this host only.** Nothing here is evidence for Windows, which has never been
 run on real hardware. See `STATUS.md`.

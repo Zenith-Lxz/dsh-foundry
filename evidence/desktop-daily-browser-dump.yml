@@ -497,7 +497,7 @@
 # == @dsh-foundry/bundle
 - id: desktop-directory-picker-host
   name: '@deepseek-ai/dsh-host-directory-picker-native'
-# == @dsh-foundry/bundle, patched by /var/folders/gx/87529l5x6sg4pfndryn8g02c0000gn/T/dsh-desktop-daily-7njOCy/profiles/combined/cordis.patch.yml
+# == @dsh-foundry/bundle, patched by /var/folders/gx/87529l5x6sg4pfndryn8g02c0000gn/T/dsh-desktop-daily-nWJLw3/profiles/combined/cordis.patch.yml
 - id: desktop-native
   name: '@dsh-foundry/native'
   disabled: true
