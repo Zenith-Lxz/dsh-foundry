@@ -32,7 +32,10 @@ This project does **not fork or modify official source**. It composes only throu
 | macOS (Apple Silicon) | [.dmg](https://github.com/Zenith-Lxz/dsh-foundry/releases/latest) |
 | Windows (x64) | [.exe Setup](https://github.com/Zenith-Lxz/dsh-foundry/releases/latest) |
 
-Builds are **unsigned and not notarized**. On macOS, right-click → Open the first time. On Windows, choose *More info → Run anyway* if SmartScreen warns.
+Builds are **unsigned and not notarized** (ad-hoc signed, not Developer ID).
+
+- **macOS**: **right-click → Open** the first time; do not double-click. If macOS says the app "is damaged and can't be opened", that build predates the ad-hoc signing fix — use a newer one, or clear the quarantine attribute with `xattr -cr "/Applications/DSH Foundry.app"`.
+- **Windows**: choose *More info → Run anyway* when SmartScreen warns.
 
 Plugins only, no desktop app:
 

@@ -32,7 +32,10 @@
 | macOS (Apple Silicon) | [.dmg](https://github.com/Zenith-Lxz/dsh-foundry/releases/latest) |
 | Windows (x64) | [.exe Setup](https://github.com/Zenith-Lxz/dsh-foundry/releases/latest) |
 
-安装包**未签名、未公证**。macOS 首次启动请右键 → 打开；Windows 如遇 SmartScreen 提示，选择「更多信息 → 仍要运行」。
+安装包**未签名、未公证**（ad-hoc 签名，非 Apple Developer ID）。
+
+- **macOS**：首次启动请**右键 → 打开**，不要双击。若提示「已损坏，无法打开」，说明是旧版本；用新版本，或执行 `xattr -cr "/Applications/DSH Foundry.app"` 清除隔离属性。
+- **Windows**：SmartScreen 提示时选择「更多信息 → 仍要运行」。
 
 只使用插件、不需要桌面应用：
 
